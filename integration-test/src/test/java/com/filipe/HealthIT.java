@@ -23,7 +23,6 @@ public class HealthIT {
     @BeforeEach
     public void setUp() {
         BASE_URL = "http://localhost:" + port + "/actuator/health";
-        System.out.println("BASE_URL: " + BASE_URL); // Debugging log
     }
 
     @Test
