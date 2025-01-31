@@ -7,6 +7,9 @@
     - Spring Boot
     - Maven
 
+## The application has health check
+## The application has a swagger documentation
+
 Design
 
 ```mermaid
