@@ -22,7 +22,7 @@ public class HealthIT {
 
     @BeforeEach
     public void setUp() {
-        BASE_URL = "http://localhost:" + port + "/actuator/health";
+        BASE_URL = "http://localhost:" + port + "/myapp/actuator/health";
     }
 
     @Test

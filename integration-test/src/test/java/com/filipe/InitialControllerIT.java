@@ -18,7 +18,7 @@ public class InitialControllerIT {
 
     @BeforeEach
     public void setUp() {
-        BASE_URL = "http://localhost:" + port + "/hello";
+        BASE_URL = "http://localhost:" + port + "/myapp/hello";
     }
 
     @Test

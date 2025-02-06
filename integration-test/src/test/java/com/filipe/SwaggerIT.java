@@ -17,7 +17,7 @@ public class SwaggerIT {
 
     @BeforeEach
     public void setUp() {
-        BASE_URL = "http://localhost:" + port + "/v3/api-docs";
+        BASE_URL = "http://localhost:" + port + "/myapp/v3/api-docs";
     }
 
     @Test
