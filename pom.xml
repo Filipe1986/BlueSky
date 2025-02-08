@@ -27,6 +27,16 @@
 
 	</properties>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.filipe</groupId>
+				<artifactId>application</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
 	<dependencies>
 		<!-- Developer Tools -->
 		<dependency>
@@ -44,7 +54,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.8.1</version>
+					<version>3.11.0</version> <!-- or a newer version -->
 					<configuration>
 						<source>21</source>
 						<target>21</target>
