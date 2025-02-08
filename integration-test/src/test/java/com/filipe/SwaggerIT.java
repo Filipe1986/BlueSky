@@ -21,7 +21,7 @@ public class SwaggerIT {
     }
 
     @Test
-    public void testHealth() {
+    public void testSwagger() {
         RestAssured.get(BASE_URL)
                 .then()
                 .statusCode(200);

@@ -22,7 +22,7 @@ public class InitialControllerIT {
     }
 
     @Test
-    public void testHealth() {
+    public void testHello() {
         RestAssured.get(BASE_URL)
                 .then()
                 .statusCode(200);
