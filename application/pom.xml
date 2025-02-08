@@ -49,7 +49,7 @@
         </dependency>
         <dependency>
             <groupId>com.filipe</groupId>
-            <artifactId>BlueSkyConsumer</artifactId>
+            <artifactId>BlueSkyConnector</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

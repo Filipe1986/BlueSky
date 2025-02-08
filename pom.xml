@@ -16,7 +16,7 @@
 	<description>Spring Boot</description>
 	<modules>
 		<module>application</module>
-		<module>BlueSkyConsumer</module>
+		<module>BlueSkyConnector</module>
 		<module>integration-test</module>
 	</modules>
 	<properties>
