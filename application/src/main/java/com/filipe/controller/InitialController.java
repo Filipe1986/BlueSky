@@ -1,6 +1,5 @@
 package com.filipe.controller;
 
-import com.filipe.configuration.BlueSkyAuth;
 import com.filipe.model.BlueSkyPostResponse;
 import com.filipe.model.BlueSkySessionResponse;
 import com.filipe.request.AuthClientRequest;
@@ -23,27 +22,18 @@ import java.util.Objects;
 @RestController
 public class InitialController {
 
-    private final BlueSkyAuth blueSkyAuth;
-
     private final AuthClientRequest blueSkyAuthClientRequest;
 
     private final CreateRecordClientRequest createRecordClientRequest;
 
     private final GetTimelineClientRequest getTimelineClientRequest;
 
-    public InitialController(BlueSkyAuth blueSkyAuth, AuthClientRequest blueSkyAuthClientRequest, CreateRecordClientRequest createRecordClientRequest, GetTimelineClientRequest getTimelineClientRequest) {
-        this.blueSkyAuth = blueSkyAuth;
+    public InitialController(AuthClientRequest blueSkyAuthClientRequest, CreateRecordClientRequest createRecordClientRequest, GetTimelineClientRequest getTimelineClientRequest) {
         this.blueSkyAuthClientRequest = blueSkyAuthClientRequest;
         this.createRecordClientRequest = createRecordClientRequest;
         this.getTimelineClientRequest = getTimelineClientRequest;
     }
 
-    @Operation(summary = "Hello endpoint", description = "Dummy return message")
-    @GetMapping("/hello")
-    public String getInitialMessage() {
-        log.info(blueSkyAuth.getBlueSkyHandle());
-        return "Hello, World!";
-    }
 
     @Operation(summary = "Post text endpoint", description = "Post message to BlueSky")
     @PostMapping("/createPost")

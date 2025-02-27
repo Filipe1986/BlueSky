@@ -7,7 +7,7 @@ public record PostView(
         String uri,
         String cid,
         Author author,
-        Record record,
+        BlueSkyRecord record,
         int replyCount,
         int repostCount,
         int likeCount,

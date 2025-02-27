@@ -2,7 +2,7 @@ package com.filipe.response;
 
 import java.util.List;
 
-public record Record(
+public record BlueSkyRecord(
         String $type,
         String createdAt,
         List<String> langs,
