@@ -1,15 +1,16 @@
 package com.filipe.controller;
 
-import com.filipe.request.AuthClientRequest;
-import com.filipe.request.CreateRecordClientRequest;
 import com.filipe.configuration.BlueSkyAuth;
 import com.filipe.model.BlueSkyPostResponse;
 import com.filipe.model.BlueSkySessionResponse;
+import com.filipe.request.AuthClientRequest;
+import com.filipe.request.CreateRecordClientRequest;
 import com.filipe.request.GetTimelineClientRequest;
 import com.filipe.response.FeedResponse;
 import io.swagger.v3.oas.annotations.Operation;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,25 +19,29 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Objects;
 
 
+@Slf4j
 @RestController
 public class InitialController {
 
-    @Autowired
-    private BlueSkyAuth blueSkyAuth;
+    private final BlueSkyAuth blueSkyAuth;
 
-    @Autowired
-    private AuthClientRequest blueSkyAuthClientRequest;
+    private final AuthClientRequest blueSkyAuthClientRequest;
 
-    @Autowired
-    private CreateRecordClientRequest createRecordClientRequest;
+    private final CreateRecordClientRequest createRecordClientRequest;
 
-    @Autowired
-    private GetTimelineClientRequest getTimelineClientRequest;
+    private final GetTimelineClientRequest getTimelineClientRequest;
+
+    public InitialController(BlueSkyAuth blueSkyAuth, AuthClientRequest blueSkyAuthClientRequest, CreateRecordClientRequest createRecordClientRequest, GetTimelineClientRequest getTimelineClientRequest) {
+        this.blueSkyAuth = blueSkyAuth;
+        this.blueSkyAuthClientRequest = blueSkyAuthClientRequest;
+        this.createRecordClientRequest = createRecordClientRequest;
+        this.getTimelineClientRequest = getTimelineClientRequest;
+    }
 
     @Operation(summary = "Hello endpoint", description = "Dummy return message")
     @GetMapping("/hello")
     public String getInitialMessage() {
-        System.out.println(blueSkyAuth.getBLUESKY_HANDLE());
+        log.info(blueSkyAuth.getBlueSkyHandle());
         return "Hello, World!";
     }
 

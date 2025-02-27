@@ -12,7 +12,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 
 
 @SpringBootTest(classes = BlueSkyApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class HealthIT {
+class HealthIT {
 
     @LocalServerPort
     private int port;
@@ -21,12 +21,12 @@ public class HealthIT {
 
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         BASE_URL = "http://localhost:" + port + "/myapp/actuator/health";
     }
 
     @Test
-    public void testHealth() {
+    void testHealth() {
         RestAssured.get(BASE_URL)
                 .then()
                 .statusCode(200)
@@ -35,7 +35,7 @@ public class HealthIT {
     }
 
     @Test
-    public void testLiveness() {
+    void testLiveness() {
         RestAssured.get(BASE_URL + "/liveness")
                 .then()
                 .statusCode(200)
@@ -44,7 +44,7 @@ public class HealthIT {
     }
 
     @Test
-    public void testReadiness() {
+    void testReadiness() {
 
         RestAssured.get(BASE_URL + "/readiness")
                 .then()

@@ -17,6 +17,7 @@
 	<modules>
 		<module>application</module>
 		<module>bluesky-connector</module>
+		<module>twitter-connector</module>
 		<module>integration-test</module>
 	</modules>
 	<properties>
@@ -43,18 +44,16 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
-			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
 	<build>
 		<pluginManagement>
 			<plugins>
-				<!-- Define common plugin versions here -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.11.0</version> <!-- or a newer version -->
+					<version>3.11.0</version>
 					<configuration>
 						<source>21</source>
 						<target>21</target>

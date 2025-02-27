@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 
 @SpringBootTest(classes = BlueSkyApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class InitialControllerIT {
+class InitialControllerIT {
 
     @LocalServerPort
     private int port;
@@ -17,12 +17,12 @@ public class InitialControllerIT {
 
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         BASE_URL = "http://localhost:" + port + "/myapp/hello";
     }
 
     @Test
-    public void testHello() {
+    void testHello() {
         RestAssured.get(BASE_URL)
                 .then()
                 .statusCode(200);

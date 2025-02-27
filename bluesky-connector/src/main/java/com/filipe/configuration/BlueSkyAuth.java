@@ -9,10 +9,10 @@ import org.springframework.stereotype.Component;
 public class BlueSkyAuth {
 
     @Value("${blueSky.handle}")
-    private String BLUESKY_HANDLE;
+    private  String blueSkyHandle;
 
     @Value("${blueSky.pdshost}")
-    private String PDSHOST;
+    private String pdsHost;
 
     @Value("${blueSky.publicHost}")
     private String publicHost;
