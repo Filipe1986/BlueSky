@@ -43,14 +43,14 @@ public class CreateRecordClientRequest {
     }
 
     private HttpEntity<Map<String, Object>> createRequestEntity(HttpHeaders headers, String text) {
-        Map<String, Object> recordContent = new HashMap<>();
-        recordContent.put("text", text);
-        recordContent.put("createdAt", Instant.now().toString());
+        Map<String, Object> blueSkyRecordMap = new HashMap<>();
+        blueSkyRecordMap.put("text", text);
+        blueSkyRecordMap.put("createdAt", Instant.now().toString());
 
         Map<String, Object> requestBody = new HashMap<>();
         requestBody.put("repo", blueSkyAuth.getBlueSkyHandle());
         requestBody.put("collection", "app.bsky.feed.post");
-        requestBody.put("record", recordContent);
+        requestBody.put("record", blueSkyRecordMap);
 
         return new HttpEntity<>(requestBody, headers);
     }

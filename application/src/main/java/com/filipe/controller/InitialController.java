@@ -48,7 +48,7 @@ public class InitialController {
         ResponseEntity<BlueSkyPostResponse> createRecordResponse = createRecordClientRequest.createRecord(Objects.requireNonNull(response.getBody()).accessJwt(), text);
 
         if (createRecordResponse.getStatusCode() != HttpStatus.OK) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error creating record");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error creating blueSkyRecord");
         }
         return ResponseEntity.ok(createRecordResponse.getBody());
     }

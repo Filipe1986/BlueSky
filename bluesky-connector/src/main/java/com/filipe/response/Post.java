@@ -6,7 +6,7 @@ public record Post(
         String uri,
         String cid,
         Author author,
-        BlueSkyRecord record,
+        BlueSkyRecord blueSkyRecord,
         int replyCount,
         int repostCount,
         int likeCount,
