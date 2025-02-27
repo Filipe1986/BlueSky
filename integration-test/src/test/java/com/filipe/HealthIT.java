@@ -17,17 +17,17 @@ class HealthIT {
     @LocalServerPort
     private int port;
 
-    private static String BASE_URL;
+    private static String baseUrl;
 
 
     @BeforeEach
     void setUp() {
-        BASE_URL = "http://localhost:" + port + "/myapp/actuator/health";
+        baseUrl = "http://localhost:" + port + "/myapp/actuator/health";
     }
 
     @Test
     void testHealth() {
-        RestAssured.get(BASE_URL)
+        RestAssured.get(baseUrl)
                 .then()
                 .statusCode(200)
                 .contentType(ContentType.JSON) // Ensures the response is valid JSON
@@ -36,7 +36,7 @@ class HealthIT {
 
     @Test
     void testLiveness() {
-        RestAssured.get(BASE_URL + "/liveness")
+        RestAssured.get(baseUrl + "/liveness")
                 .then()
                 .statusCode(200)
                 .contentType(ContentType.JSON) // Ensures the response is valid JSON
@@ -46,7 +46,7 @@ class HealthIT {
     @Test
     void testReadiness() {
 
-        RestAssured.get(BASE_URL + "/readiness")
+        RestAssured.get(baseUrl + "/readiness")
                 .then()
                 .statusCode(200)
                 .contentType(ContentType.JSON) // Ensures the response is valid JSON

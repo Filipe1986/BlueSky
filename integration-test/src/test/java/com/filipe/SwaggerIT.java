@@ -12,17 +12,17 @@ class SwaggerIT {
     @LocalServerPort
     private int port;
 
-    private static String BASE_URL;
+    private static String baseUrl;
 
 
     @BeforeEach
     void setUp() {
-        BASE_URL = "http://localhost:" + port + "/myapp/v3/api-docs";
+        baseUrl = "http://localhost:" + port + "/myapp/v3/api-docs";
     }
 
     @Test
     void testSwagger() {
-        RestAssured.get(BASE_URL)
+        RestAssured.get(baseUrl)
                 .then()
                 .statusCode(200);
     }

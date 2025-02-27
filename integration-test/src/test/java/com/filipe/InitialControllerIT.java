@@ -13,17 +13,17 @@ class InitialControllerIT {
     @LocalServerPort
     private int port;
 
-    private static String BASE_URL;
+    private static String baseUrl;
 
 
     @BeforeEach
     void setUp() {
-        BASE_URL = "http://localhost:" + port + "/myapp/hello";
+        baseUrl = "http://localhost:" + port + "/myapp/hello";
     }
 
     @Test
     void testHello() {
-        RestAssured.get(BASE_URL)
+        RestAssured.get(baseUrl)
                 .then()
                 .statusCode(200);
     }
