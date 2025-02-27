@@ -2,8 +2,10 @@ package com.filipe;
 
 public class BlueSkyURL {
 
+    public static final String UTILITY_CLASS = "Utility class";
+
     private BlueSkyURL() {
-        throw new IllegalStateException("Utility class");
+        throw new IllegalStateException(UTILITY_CLASS);
     }
 
     public static class POST {
