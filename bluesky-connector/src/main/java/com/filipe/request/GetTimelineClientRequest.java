@@ -4,7 +4,10 @@ import com.filipe.BlueSkyURL;
 import com.filipe.configuration.BlueSkyAuth;
 import com.filipe.response.FeedResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
@@ -12,7 +15,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 import java.util.Map;
-import java.util.Objects;
 
 
 @Component
@@ -23,7 +25,7 @@ public class GetTimelineClientRequest {
 
     @Autowired
     public GetTimelineClientRequest(BlueSkyAuth blueSkyAuth) {
-        url = blueSkyAuth.getPDSHOST() + BlueSkyURL.GET.GET_TIMELINE;
+        url = blueSkyAuth.getPdsHost() + BlueSkyURL.GET.GET_TIMELINE;
         restTemplate = new RestTemplate();
     }
 
@@ -42,11 +44,7 @@ public class GetTimelineClientRequest {
                 .build()
                 .toUri();
 
-        ResponseEntity<FeedResponse> response = restTemplate.exchange(uri, HttpMethod.GET, entity, FeedResponse.class);
-
-        System.out.println("timeline feed size: " + Objects.requireNonNull(response.getBody()).feed().size());
-        System.out.println("timeline: " + response.getBody());
-        return response.getBody();
+        return restTemplate.exchange(uri, HttpMethod.GET, entity, FeedResponse.class).getBody();
     }
 
 

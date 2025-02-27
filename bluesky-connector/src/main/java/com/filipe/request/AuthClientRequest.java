@@ -25,7 +25,7 @@ public class AuthClientRequest {
     @Autowired
     public AuthClientRequest(BlueSkyAuth blueSkyAuth) {
         this.blueSkyAuth = blueSkyAuth;
-        createSessionUrl = blueSkyAuth.getPDSHOST() + BlueSkyURL.POST.CREATE_SESSION;
+        createSessionUrl = blueSkyAuth.getPdsHost() + BlueSkyURL.POST.CREATE_SESSION;
     }
 
     /**
@@ -51,7 +51,7 @@ public class AuthClientRequest {
 
     private Map<String, Object> getRequestBody() {
         Map<String, Object> requestBody = new java.util.HashMap<>();
-        requestBody.put("identifier", blueSkyAuth.getBLUESKY_HANDLE());
+        requestBody.put("identifier", blueSkyAuth.getBlueSkyHandle());
         requestBody.put("password", blueSkyAuth.getPassword);
         return requestBody;
     }

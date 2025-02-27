@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 
 @SpringBootTest(classes = BlueSkyApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class SwaggerIT {
+class SwaggerIT {
 
     @LocalServerPort
     private int port;
@@ -16,12 +16,12 @@ public class SwaggerIT {
 
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         BASE_URL = "http://localhost:" + port + "/myapp/v3/api-docs";
     }
 
     @Test
-    public void testSwagger() {
+    void testSwagger() {
         RestAssured.get(BASE_URL)
                 .then()
                 .statusCode(200);

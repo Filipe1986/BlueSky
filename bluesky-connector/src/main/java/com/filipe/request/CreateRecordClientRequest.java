@@ -22,7 +22,7 @@ public class CreateRecordClientRequest {
     @Autowired
     public CreateRecordClientRequest(BlueSkyAuth blueSkyAuth) {
         this.blueSkyAuth = blueSkyAuth;
-        createRecordUrl = blueSkyAuth.getPDSHOST() + BlueSkyURL.POST.CREATE_RECORD;
+        createRecordUrl = blueSkyAuth.getPdsHost() + BlueSkyURL.POST.CREATE_RECORD;
         restTemplate = new RestTemplate();
     }
 
@@ -43,14 +43,14 @@ public class CreateRecordClientRequest {
     }
 
     private HttpEntity<Map<String, Object>> createRequestEntity(HttpHeaders headers, String text) {
-        Map<String, Object> record = new HashMap<>();
-        record.put("text", text);
-        record.put("createdAt", Instant.now().toString());
+        Map<String, Object> recordContent = new HashMap<>();
+        recordContent.put("text", text);
+        recordContent.put("createdAt", Instant.now().toString());
 
         Map<String, Object> requestBody = new HashMap<>();
-        requestBody.put("repo", blueSkyAuth.getBLUESKY_HANDLE());
+        requestBody.put("repo", blueSkyAuth.getBlueSkyHandle());
         requestBody.put("collection", "app.bsky.feed.post");
-        requestBody.put("record", record);
+        requestBody.put("record", recordContent);
 
         return new HttpEntity<>(requestBody, headers);
     }
